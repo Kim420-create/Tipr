@@ -1,0 +1,32 @@
+.background-hp {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    color: white;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-hp > h1 {
+    font-size: 60px;
+    font-family: 'Bebas Neue', cursive;
+}
+.background-hp > h4 {
+    font-family: 'Allison', cursive;
+    font-size: 50px;
+}
+.carousel-item > img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+@media  (max-width : 320px) {
+    h4 {
+        font-size: 40px !important;
+    }
+}

@@ -1,0 +1,130 @@
+<!-- CODE TEST -->
+<h1 class="text-center">Catalogue</h1>
+<div class="contain  d-flex flex-wrap justify-content-center mt-5 animate__animated animate__slow animate__backInDown">
+  
+  <div class="card card0" *ngFor="let data of artistData">
+    <div class="border1">
+      <h2>{{data.prenom}} {{data.nom}}</h2>
+      <!-- <div class="icons">
+        <i class="fa fa-codepen" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <i class="fa fa-dribbble" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </div> -->
+    </div>
+     <a class="btn" [routerLink]="['/profil-artist']" >Profil</a>
+  </div>
+  
+
+  <!-- <div class="card card1">
+    <div class="border1">
+      <h2>Ben Stiller</h2>
+      <div class="icons">
+        <i class="fa fa-codepen" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <i class="fa fa-dribbble" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card2">
+    <div class="border1">
+      <h2>Patrick Stewart</h2>
+      <div class="icons">
+        <i class="fa fa-codepen" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+        <i class="fa fa-dribbble" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+
+
+
+
+<!-- FIN CONDE TEST  -->
+
+
+
+<!-- CODE FONCTIONNEL  -->
+
+<!-- <div class="contaner d-flex flex-wrap justify-content-center mt-5">
+
+    <div class="card" style="width: 18rem; margin: 20px 20px;" *ngFor="let data of artistData">
+        <img src="../../../assets/img/Britney_Spears.jpeg" class="card-img-top" alt="test">
+
+        <div class="card-body">
+          <h5 class="card-title">{{data.prenom}} {{data.nom}}</h5>
+          <p class="card-text">{{data.reseaux}}</p>
+          <a class="btn btn-primary" [routerLink]="['/profil-artist']" >Profil</a>
+          <button (click)="onEdit(data)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Modifier</button>
+          <button class="btn btn-danger mx-8"(click)="deleteArtist(data)">Supprimer</button>
+        </div>
+
+    </div>
+
+</div> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Artist details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form class="m-5 form align-center" style="width: 80%;" [formGroup] = "formValue" novalidate>
+
+          <div class="mb-1">
+            <label for="pseudo" class="form-label">Pseudo</label>
+            <input type="text" class="form-control" id="pseudo" formControlName = "pseudo" >
+          </div>
+      
+          <div class="mb-1">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" formControlName = "nom">
+          </div>
+      
+      
+          <div class="mb-1">
+            <label for="prenom" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenom" formControlName = "prenom">
+          </div>
+      
+      
+          <div class="mb-1">
+            <label for="email" class="form-label">Adresse Email</label>
+            <input type="email" class="form-control" id="email" formControlName = "email" aria-describedby="emailHelp">
+          </div>
+      
+      
+          <div class="mb-1">
+            <label for="reseaux" class="form-label">Réseaux sociaux</label>
+            <input type="text" class="form-control" id="reseaux" formControlName = "reseaux">
+          </div>
+      
+         
+          <div class="mb-1">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="password" formControlName ="password">
+          </div>
+      
+        </form>   
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="updateArtistDetails()" class="btn btn-primary">Modifier</button>
+      </div>
+
+    </div>
+  </div>
+</div>

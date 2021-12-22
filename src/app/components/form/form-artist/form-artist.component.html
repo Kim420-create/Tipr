@@ -1,0 +1,111 @@
+<div class="round animate__animated animate__fadeInTopLeft"></div>
+
+<div class="container">
+
+  <h2 class="text-center m-5">Inscription Artiste</h2>
+
+  <p class="animate__animated animate__fadeInLeft">Creez votre compte en deux clics afin de recevoir du soutien de vos fans !</p>
+
+</div>
+
+<div class="containerForm">
+
+<!-- formulaire artist-->
+<form class="m-5 form align-center" style="width: 50%;" [formGroup] = "formValue" novalidate>
+
+    <div class="mb-1">
+     <p>Les champs obligatoires sont précédés d'une étoile *</p>
+
+        <label for="pseudo" class="form-label">Nom de scène </label>
+        <input type="text" class="form-control" id="pseudo" formControlName = "pseudo" >
+      </div>
+
+      
+
+   <div class="mb-1">
+     <label for="nom" class="form-label">Nom *</label>
+     <input type="text" class="form-control" id="nom" formControlName = "nom">
+   </div>
+
+   <!-- message nom requis -->
+
+   <div *ngIf="formValue.controls['nom'].invalid && (formValue.controls['nom'].dirty || formValue.controls['nom'].touched)">
+     <small class="text-danger" *ngIf="formValue.controls['nom'].errors">
+       Un nom est requis
+     </small>
+   </div>
+
+
+   <div class="mb-1">
+     <label for="prenom" class="form-label">Prénom *</label>
+     <input type="text" class="form-control" id="prenom" formControlName = "prenom">
+   </div>
+
+    <!-- message prenom requis-->
+
+    <div *ngIf="formValue.controls['prenom'].invalid && (formValue.controls['prenom'].dirty || formValue.controls['prenom'].touched)">
+      <small class="text-danger" *ngIf="formValue.controls['prenom'].errors">
+        Un prenom est requis
+      </small>
+    </div>
+
+     <div class="mb-1">
+       <label for="email" class="form-label">Adresse Email *</label>
+       <input type="email" class="form-control" id="email" formControlName = "email" aria-describedby="emailHelp">
+       <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</div>
+     </div>
+
+      <!-- message email requis -->
+
+    <div *ngIf="formValue.controls['email'].invalid && (formValue.controls['email'].dirty || formValue.controls['email'].touched)">
+      <small class="text-danger" *ngIf="formValue.controls['email'].errors">
+        Un email est requis
+      </small>
+    </div>
+
+
+     <div class="mb-1">
+        <label for="reseaux" class="form-label">Réseaux sociaux *</label>
+        <input type="text" class="form-control" id="reseaux" formControlName = "reseaux">
+      </div>
+
+       <!-- message reseau social requis-->
+
+    <div *ngIf="formValue.controls['reseaux'].invalid && (formValue.controls['reseaux'].dirty || formValue.controls['reseaux'].touched)">
+      <small class="text-danger" *ngIf="formValue.controls['reseaux'].errors">
+        Un reseau social est requis
+      </small>
+    </div>
+
+
+     <div class="mb-1">
+       <label for="password" class="form-label">Mot de passe *</label>
+       <input type="password" class="form-control" id="password" formControlName ="password">
+     </div>
+
+      <!-- message mot de passe requis -->
+
+    <div *ngIf="formValue.controls['password'].invalid && (formValue.controls['password'].dirty || formValue.controls['password'].touched)">
+      <small class="text-danger" *ngIf="formValue.controls['password'].errors">
+        Un mot de passe est requis
+      </small>
+    </div>
+
+     <!-- <div class="mb-3">
+      <label for="img" class="form-label">Photo</label>
+      <input type="file" class="form-control" id="img" formControlName ="img">
+    </div> -->
+
+     <div class="box d-flex justify-content-center">
+         <button type="submit" (click)="postArtistDetails()" [disabled]="formValue.pristine || formValue.invalid">Enregistrer</button>
+     </div>
+ </form>
+
+ <!--  A supprimer avant la fin. -->
+ <!-- <p>FormValue : {{formValue.value | json}}</p> -->
+ <!-- <p>FormStatus : {{formValue.status | json}}</p> -->
+<div class="round-bottom animate__animated animate__fadeInBottomRight"></div>
+
+</div>
+
+

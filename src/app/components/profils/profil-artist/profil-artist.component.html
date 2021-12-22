@@ -1,0 +1,18 @@
+<div class="container">
+
+    <p class="text-center">{{api$ | async | json}}</p>
+
+
+   <div *ngFor="let artiste of api$ | async">
+       <p>{{artiste.id}}</p>
+   </div>
+
+   
+
+   
+            
+         
+
+</div>
+
+

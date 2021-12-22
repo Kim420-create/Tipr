@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+
+
+h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 60px;
+}
+
+.container > p {
+    font-family: 'Allison', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+
+button {
+    color:  black;
+    border-color:  black;
+}
+
+button:hover {
+    color: black;
+    border-color : #8c96cf;
+}
+
+
+
+.containerButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button5 {
+    border-radius: 50%;
+    font-family: 'Quicksand', sans-serif;
+    margin: 30px 30px;
+    background: white;
+}
+
+.button {
+   width: 300px;
+   height: 300px;
+  }

@@ -1,0 +1,148 @@
+{
+  "artist": [
+    {
+      "id": 9,
+      "pseudo": "Brit",
+      "nom": "Spears",
+      "prenom": "Britney",
+      "email": "britney@spears.com",
+      "reseaux": "instagram/britneySpears",
+      "password": "OOpsIDidItAgain"
+    },
+    {
+      "id": 14,
+      "pseudo": "jojo",
+      "nom": "Jackson",
+      "prenom": "Michael",
+      "email": "michael@j.com",
+      "reseaux": "instagram/jackson",
+      "password": "lalalala"
+    },
+    {
+      "id": 25,
+      "pseudo": "jojo",
+      "prenom": "Minny",
+      "nom": "Mouse",
+      "email": "minny@mouse.fr",
+      "reseaux": "instagram/britneySpears",
+      "password": "Lalalaa"
+    },
+    {
+      "id": 30,
+      "pseudo": "jojo",
+      "prenom": "dupre",
+      "nom": "lulu",
+      "email": "luludupre@lullu.com",
+      "reseaux": "instagram/test",
+      "password": "aaaaaa"
+    },
+    {
+      "id": 31,
+      "pseudo": "Bee",
+      "prenom": "Maya",
+      "nom": "L'abeille",
+      "email": "maya@l'abeille.com",
+      "reseaux": "instagram/MayaB",
+      "password": "Bzzzzzzz"
+    },
+    {
+      "id": 32,
+      "pseudo": "LJ",
+      "prenom": "Lebron",
+      "nom": "James",
+      "email": "lebron@james.com",
+      "reseaux": "instagram/lebronjames",
+      "password": "Lakers"
+    },
+    {
+      "id": 33,
+      "pseudo": "LL",
+      "prenom": "Lady",
+      "nom": "Leshur",
+      "email": "lady@leshur.com",
+      "reseaux": "instagram/leshur",
+      "password": "Quarantine"
+    },
+    {
+      "id": 34,
+      "pseudo": "jojo",
+      "prenom": "Minny",
+      "nom": "Mouse",
+      "email": "minny@mouse.fr",
+      "reseaux": "facebook/Minny",
+      "password": "HeyMickey"
+    },
+    {
+      "id": 35,
+      "pseudo": "EJ",
+      "prenom": "E",
+      "nom": "JM",
+      "email": "ej@ejm.com",
+      "reseaux": "instagram/ejm",
+      "password": "Riddim"
+    },
+    {
+      "id": 36,
+      "pseudo": "Minny Mouse",
+      "prenom": "Minny",
+      "nom": "Mouse",
+      "email": "minny@mouse.fr",
+      "reseaux": "facebook/Minny",
+      "password": "HeyMickey!"
+    }
+  ],
+  "tipr": [
+    {
+      "id": 1,
+      "prenom": "Lili",
+      "nom": "lovavick",
+      "email": "lova@lili.com",
+      "password": "aaaa"
+    },
+    {
+      "id": 2,
+      "prenom": "Kim",
+      "nom": "Gharbi",
+      "email": "kim.gh@gmail.com",
+      "password": "Lalalaa"
+    },
+    {
+      "id": 3,
+      "prenom": "Lelelele",
+      "nom": "Lalala",
+      "email": "lala@lelele",
+      "password": "Llalalala"
+    },
+    {
+      "id": 4,
+      "prenom": "Minny",
+      "nom": "Mouse",
+      "email": "minny@mouse.fr",
+      "password": "ssjsjsjsjs"
+    },
+    {
+      "id": 5,
+      "prenom": "ihhi",
+      "nom": "sasa",
+      "email": "a@a.a",
+      "password": "lalalala"
+    },
+    {
+      "id": 6,
+      "prenom": "dupre",
+      "nom": "lulu",
+      "email": "luludupre@lullu.com",
+      "password": "LoLoLoLo"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

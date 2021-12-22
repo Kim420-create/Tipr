@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+.round{
+    height: 300px;
+    width: 300px;
+    background-color: #f1f2f9;
+    opacity: 0.4;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f1f2f9 4px ), repeating-linear-gradient( #e0b7c655, #e0b7c6 );
+    margin: 30px 30px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+.container{
+  margin-top: 85px;
+}
+.round-bottom {
+    height: 300px;
+    width: 300px;
+    background-color: #f1f2f9;
+    opacity: 0.4;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f1f2f9 4px ), repeating-linear-gradient( #8c96cf55, #8c96cf );
+    margin: 30px 30px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+}
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+}
+.form-control.ng-touched.ng-valid {
+    border: 1px solid green;
+}
+.form-control.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+.container > p {
+    font-family: 'Allison', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 60px;
+}
+.form-label {
+    font-family: 'Bebas Neue', cursive;
+
+}
+
+button {
+    font-family: 'Quicksand', sans-serif;
+    border-color : #8c96cf;
+    margin-top: 30px;
+}
+
+button, button::after {
+    width: 380px;
+    height: 86px;
+    font-size: 36px;
+    font-family: 'Bebas Neue', cursive;
+    background: linear-gradient(45deg, transparent 5%, #b8bee1 5%);
+    border: 0;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 88px;
+    box-shadow: 6px 0px 0px #e0b7c6;
+    outline: transparent;
+    position: relative;
+  }
+  
+button::after {
+    --slice-0: inset(50% 50% 50% 50%);
+    --slice-1: inset(80% -6px 0 0);
+    --slice-2: inset(50% -6px 30% 0);
+    --slice-3: inset(10% -6px 85% 0);
+    --slice-4: inset(40% -6px 43% 0);
+    --slice-5: inset(80% -6px 5% 0);
+    
+    content: 'ENREGISTRER';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+    clip-path: var(--slice-0);
+  }
+  
+  button:hover::after {
+    animation: 1s glitch;
+    animation-timing-function: steps(2, end);
+  }
+  
+  @keyframes glitch {
+    0% {
+      clip-path: var(--slice-1);
+      transform: translate(-20px, -10px);
+    }
+    10% {
+      clip-path: var(--slice-3);
+      transform: translate(10px, 10px);
+    }
+    20% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 10px);
+    }
+    30% {
+      clip-path: var(--slice-3);
+      transform: translate(0px, 5px);
+    }
+    40% {
+      clip-path: var(--slice-2);
+      transform: translate(-5px, 0px);
+    }
+    50% {
+      clip-path: var(--slice-3);
+      transform: translate(5px, 0px);
+    }
+    60% {
+      clip-path: var(--slice-4);
+      transform: translate(5px, 10px);
+    }
+    70% {
+      clip-path: var(--slice-2);
+      transform: translate(-10px, 10px);
+    }
+    80% {
+      clip-path: var(--slice-5);
+      transform: translate(20px, -10px);
+    }
+    90% {
+      clip-path: var(--slice-1);
+      transform: translate(-10px, 0px);
+    }
+    100% {
+      clip-path: var(--slice-1);
+      transform: translate(0);
+    }
+  }
