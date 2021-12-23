@@ -5,7 +5,6 @@ var bodyParser = require("body-parser");
 
 var cors = require("cors");
 
-
 // Use MongoDB
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectId;
@@ -22,7 +21,7 @@ var app = express();
 app.use(cors());
 // Define the JSON parser as a default way to consume and produce data through the exposed APIs 
 app.use(bodyParser.json());
-
+app.use(express.json());
 // Create link to angular buil directory
 // The 'ng build' command will save the result under the 'dist' folder.
 var distDir = __dirname + "/dist/";
@@ -49,7 +48,6 @@ mongodb.MongoClient.connect( LOCAL_DATABASE,
         // Save database object from the callback for reuse.
         database = client.db();
         console.log("Database connection done.");
-      
     })
 
      // Initialise the app.
@@ -67,7 +65,8 @@ app.get("/api/status", function (req, res) {
     res.status(200).json({ status : "UP" });
 });
 
-
+const artistsRoute = require("./routes/artists.route");
+app.use('/', artistsRoute);
 
 // - - - - - - - - - - - - - - - - -
 // Errors handler.

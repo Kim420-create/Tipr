@@ -6,12 +6,17 @@ import { FormArtistComponent } from '../components/form/form-artist/form-artist.
 
 const INIT_DATA : any = [];
 const BASE_URL = "http://localhost:3000";
+const backUrl = "http://localhost:5000";
+
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class DataService {
+
+    testId : string = '';
+
 
     private DataStore = new BehaviorSubject(INIT_DATA);
     data$: Observable<any>= this.DataStore.asObservable();
@@ -27,7 +32,7 @@ export class DataService {
     }
 
     getArtist(){
-        return this.http.get<any>(`http://localhost:3000/artist/`)
+        return this.http.get<any>(`${backUrl}/api/artists`)
         .pipe(map((res : any) =>{
             return res;
         }))

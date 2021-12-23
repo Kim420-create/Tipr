@@ -4,19 +4,26 @@ const Schema = mongoose.Schema;
 
 const artistSchema = new Schema({
     stageName : {
-        type : String
+        type : String,
+        required : true,
     },
     name : {
-        type : String
+        type : String,
+        required : true,
+
     },
     lastName : {
-        type : String
+        type : String,
+        required : true,
+
     },
     email : {
-        type : String
+        type : String,
+        unique : true,
     },
     socialMedia : {
         type : String
+        
     },
     password : {
         type : String
@@ -26,4 +33,4 @@ const artistSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('artist', artistSchema);
+module.exports = mongoose.model('artists', artistSchema);

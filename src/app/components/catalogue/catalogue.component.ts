@@ -18,10 +18,10 @@ export class CatalogueComponent implements OnInit {
   artistData !: any;
   artistModelObj : artistFormModel = new artistFormModel();
 
-  api$ = this.data.data$;
+  api$ = this.dataService.data$;
   artistId !: any;
 
-  constructor(private data : DataService, private formbuilder : FormBuilder, private router : Router) { }
+  constructor(private dataService : DataService, private formbuilder : FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
@@ -37,14 +37,15 @@ export class CatalogueComponent implements OnInit {
   }
  
   getArtist(){
-    this.data.getArtist()
+    this.dataService.getArtist()
     .subscribe(res => {
+      console.log(res);
       this.artistData = res;
     })
   }
 
   deleteArtist(data : any) {
-    this.data.deleteArtist(data.id)
+    this.dataService.deleteArtist(data.id)
     .subscribe(res => {
       alert("L'Artiste vient d'être supprimé.")
       this.getArtist();
@@ -65,12 +66,18 @@ export class CatalogueComponent implements OnInit {
   
   updateArtistDetails(){
     this.artistModelObj = this.formValue.value;    
-    // console.log("ArtistModelObj", this.artistModelObj);
-    this.data.updateArtist(this.artistModelObj, this.artistModelObj.id)
+    this.dataService.updateArtist(this.artistModelObj, this.artistModelObj.id)
     .subscribe(res => {
       alert("L'artiste a été modifié avec succes");
       this.formValue.reset();
       this.getArtist();
     })
+  }
+
+
+  getIdProfil(id:string){
+    this.dataService.testId = id;
+    this.router.navigate(['/profil-artist/'])
+    
   }
 }

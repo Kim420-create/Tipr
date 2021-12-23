@@ -4,7 +4,7 @@
   
   <div class="card card0" *ngFor="let data of artistData">
     <div class="border1">
-      <h2>{{data.prenom}} {{data.nom}}</h2>
+      <h2>{{data.name}} {{data.lastName}}</h2>
       <!-- <div class="icons">
         <i class="fa fa-codepen" aria-hidden="true"></i>
         <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -13,7 +13,7 @@
         <i class="fa fa-facebook" aria-hidden="true"></i>
       </div> -->
     </div>
-     <a class="btn" [routerLink]="['/profil-artist']" >Profil</a>
+     <a class="btn" (click)="getIdProfil(data._id)">Profil</a>
   </div>
   
 
@@ -60,8 +60,8 @@
         <img src="../../../assets/img/Britney_Spears.jpeg" class="card-img-top" alt="test">
 
         <div class="card-body">
-          <h5 class="card-title">{{data.prenom}} {{data.nom}}</h5>
-          <p class="card-text">{{data.reseaux}}</p>
+          <h5 class="card-title">{{data.name}} {{data.lastName}}</h5>
+          <p class="card-text">{{data.socialMedia}}</p>
           <a class="btn btn-primary" [routerLink]="['/profil-artist']" >Profil</a>
           <button (click)="onEdit(data)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Modifier</button>
           <button class="btn btn-danger mx-8"(click)="deleteArtist(data)">Supprimer</button>

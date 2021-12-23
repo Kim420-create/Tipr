@@ -22,8 +22,9 @@ export class ProfilArtistComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.api.getTodos();
-    console.log("Api$ :", this.api$);        
+    // this.api.getTodos();
+    // console.log("Api$ :", this.api$);   
+    console.log("Id", this.api.testId);  
   }
  
   // onEdit(data : any) {

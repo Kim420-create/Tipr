@@ -14,11 +14,11 @@ export class AppComponent {
   constructor(private statusService : StatusService) {}
 
   ngOnInit () {
-    this.statusService
-      .getStatus()
-      .then((result:any) => {
-        this.status = result.status;
-      });
+    // this.statusService
+    //   .getStatus()
+    //   .then((result:any) => {
+    //     this.status = result.status;
+    //   });
   }
 }
 
