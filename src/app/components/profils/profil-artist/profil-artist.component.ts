@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { artistFormModel } from '../../form/form.artist.model';
+import { artistFormModel } from '../../../../../models/form.artist.model';
 import { DataService } from 'src/app/services/data.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 

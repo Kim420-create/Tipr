@@ -133,6 +133,13 @@
       "nom": "lulu",
       "email": "luludupre@lullu.com",
       "password": "LoLoLoLo"
+    },
+    {
+      "id": 7,
+      "prenom": "",
+      "nom": "",
+      "email": "",
+      "password": ""
     }
   ],
   "comments": [

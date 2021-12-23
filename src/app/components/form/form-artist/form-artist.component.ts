@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { artistFormModel } from '../form.artist.model';
+import { artistFormModel } from '../../../../../models/form.artist.model';
 import { DataService } from 'src/app/services/data.service';
 import { Router, Routes } from '@angular/router';
 

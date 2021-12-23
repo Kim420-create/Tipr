@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { tiprModel } from './tipr.model';
+import { tiprModel } from '../../../../models/tipr.model';
 // import { DataService } from 'src/app/services/data.service';
 
 @Component({

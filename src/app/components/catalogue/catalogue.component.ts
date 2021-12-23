@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { DataService } from '../../services/data.service';
-import { artistFormModel } from '../form/form.artist.model';
+import { artistFormModel } from '../../../../models/form.artist.model';
 
 
 @Component({

@@ -1,10 +1,13 @@
- <div class="containerForm">
-     <h1>Inscription Tipr !</h1>
+<div class="round animate__animated animate__fadeInTopLeft"></div>
+
+<div class="containerForm">
+     <h2 class="m-5">Inscription Tipr !</h2>
 <!-- formulaire -->
 <form class="m-5 form align-center" style="width: 50%;" [formGroup] = "formValue" novalidate>
 
     <div class="mb-1">
-      <label for="text" class="form-label">Nom</label>
+      <p>Les champs obligatoires sont précédés d'une étoile *</p>
+      <label for="text" class="form-label">Nom *</label>
       <input type="text" class="form-control" id="nom" formControlName = "nom">
     </div>
 
@@ -17,7 +20,7 @@
   </div>
 
     <div class="mb-1">
-      <label for="text" class="form-label">Prénom</label>
+      <label for="text" class="form-label">Prénom *</label>
       <input type="text" class="form-control" id="prenom" formControlName = "prenom">
     </div>
 
@@ -30,7 +33,7 @@
     </div>
 
       <div class="mb-1">
-        <label for="email" class="form-label">Adresse Email</label>
+        <label for="email" class="form-label">Adresse Email *</label>
         <input type="email" class="form-control" id="email" formControlName = "email" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</div>
       </div>
@@ -44,7 +47,7 @@
     </div>
 
       <div class="mb-1">
-        <label for="password" class="form-label">Mot de passe</label>
+        <label for="password" class="form-label">Mot de passe *</label>
         <input type="password" class="form-control" id="password" formControlName ="password">
       </div>
 
@@ -63,7 +66,8 @@
 
  <!--  A supprimer avant la fin. -->
  <!-- <p>FormValue : {{formValue.value | json}}</p> -->
- <p>FormStatus : {{formValue.status | json}}</p>
+ <!-- <p>FormStatus : {{formValue.status | json}}</p> -->
+ <div class="round-bottom animate__animated animate__fadeInBottomRight"></div>
 
  </div>
  
