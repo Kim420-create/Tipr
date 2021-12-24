@@ -27,7 +27,7 @@ export class DataService {
     }
 
     getArtist(){
-        return this.http.get<any>(`http://localhost:3000/artist/`)
+        return this.http.get<any>(`http://localhost:5000/artist/`)
         .pipe(map((res : any) =>{
             return res;
         }))

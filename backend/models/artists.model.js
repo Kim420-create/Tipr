@@ -4,26 +4,33 @@ const Schema = mongoose.Schema;
 
 const artistSchema = new Schema({
     stageName : {
-        type : String
+        type : String,
+        require :true
     },
     name : {
-        type : String
+        type : String,
+        require : true
     },
     lastName : {
-        type : String
+        type : String,
+        require : true,
     },
     email : {
-        type : String
+        type : String,
+        require : true,
     },
     socialMedia : {
-        type : String
+        type : String,
+        require : true,
     },
     password : {
-        type : String
+        type : String,
+        require : true,
     },
     description : {
-        type : String
+        type : String,
+        require : true,
     }
 })
 
-module.exports = mongoose.model('artist', artistSchema);
+module.exports = mongoose.model('artists', artistSchema);

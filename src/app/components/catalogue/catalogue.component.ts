@@ -40,6 +40,7 @@ export class CatalogueComponent implements OnInit {
     this.data.getArtist()
     .subscribe(res => {
       this.artistData = res;
+      console.log("ArtistData :",this.artistData)
     })
   }
 
