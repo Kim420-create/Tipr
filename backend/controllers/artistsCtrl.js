@@ -1,32 +1,33 @@
 let artists = require("../models/artists.model")
-
-// // GET ALL Artists
+// POST : Create a new artist
+exports.createArtist = (req, res) => {
+    console.log("requst", req.body);
+    const newArtist = new artists(req.body);
+    newArtist.save().then(post => {
+        if(post) {
+            console.log(post);
+            res.json(post)
+        }
+    })
+}
+// GET : get all Artists
 exports.getArtists = (req, res) => {
     artists.find({}).then(data => {
         res.json(data)
     })
 };
-//GET by ID
+//GET : get artist by ID
 exports.getArtistsbyId = (req, res) => {
+    console.log("1 :", req.params.id);
     artists.find({_id : req.params.id}).then(data => {
         res.json(data);
     })
 }
-// DELETE : delete by id
+// DELETE : delete artist by id
 exports.deleteById = (req, res) => {
-    artists.find({_id : req.params.id}).then(data => {
+    artists.findByIdAndDelete({_id : req.params.id}).then(data => {
         res.json(data);
     }) 
-}
-// POST : Create a new artist
-exports.createArtist = (req, res) => {
-    const newArtist = new artists(req.body);
-    newArtist.save().then(post => {
-        if(post) {
-            res.json(post)
-        }
-    })
-    // .catch(err => res.status(400).json({err}))
 }
 // UPDATE : modify an artist
 exports.updateArtist = (req, res) => {

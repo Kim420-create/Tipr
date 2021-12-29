@@ -11,7 +11,7 @@ const artistSchema = new Schema({
         type : String,
         require : true
     },
-    lastName : {
+    lastName: {
         type : String,
         require : true,
     },

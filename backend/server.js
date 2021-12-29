@@ -16,10 +16,11 @@ connection.once('open', () => {
 })
 
 const artistsRouter = require("./routes/artists.route");
+const tiprRouter = require("./routes/tipr.route");
+const galleryRouter = require("./routes/gallery.route");
 
 app.use("/artist", artistsRouter);
-
-// app.use("/tipr", tiprRouter);
+app.use("/tipr", tiprRouter);
 
 app.listen(port, () => {
   console.log(`server is running on port: ${port}`);
@@ -87,16 +88,6 @@ app.listen(port, () => {
 
 //     const artistsRoute = require("./routes/artists.route");
 //     app.use('/', artistsRoute);
-
-
-// /**
-//  * "/api/status"
-//  * GET : Get server status
-//  * PS : it's just an exemple, not mandatory
-//  */
-// app.get("/api/status", function (req, res) {
-//     res.status(200).json({ status : "UP" });
-// });
 
 // app.get("/api/artists", function (req, res) {
 //     database.collection(ARTIST_COLLECTION).find({}).toArray(function (error, data) {
