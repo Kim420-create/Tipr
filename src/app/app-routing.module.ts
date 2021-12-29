@@ -59,6 +59,8 @@ const routes: Routes = [
     path : 'profil-tipr',
     component : ProfilTiprComponent
   },
+  
+    
 
   
 ];

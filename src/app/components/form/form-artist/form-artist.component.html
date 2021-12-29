@@ -14,35 +14,35 @@
     <div class="mb-1">
      <p>Les champs obligatoires sont précédés d'une étoile *</p>
 
-        <label for="pseudo" class="form-label">Nom de scène </label>
-        <input type="text" class="form-control" id="pseudo" formControlName = "pseudo" >
+        <label for="stageName" class="form-label">Nom de scène </label>
+        <input type="text" class="form-control" id="stageName" formControlName = "stageName" >
       </div>
 
       
 
    <div class="mb-1">
-     <label for="nom" class="form-label">Nom *</label>
-     <input type="text" class="form-control" id="nom" formControlName = "nom">
+     <label for="lastName" class="form-label">Nom *</label>
+     <input type="text" class="form-control" id="lastName" formControlName = "lastName">
    </div>
 
    <!-- message nom requis -->
 
-   <div *ngIf="formValue.controls['nom'].invalid && (formValue.controls['nom'].dirty || formValue.controls['nom'].touched)">
-     <small class="text-danger" *ngIf="formValue.controls['nom'].errors">
+   <div *ngIf="formValue.controls['lastName'].invalid && (formValue.controls['lastName'].dirty || formValue.controls['lastName'].touched)">
+     <small class="text-danger" *ngIf="formValue.controls['lastName'].errors">
        Un nom est requis
      </small>
    </div>
 
 
    <div class="mb-1">
-     <label for="prenom" class="form-label">Prénom *</label>
-     <input type="text" class="form-control" id="prenom" formControlName = "prenom">
+     <label for="name" class="form-label">Prénom *</label>
+     <input type="text" class="form-control" id="name" formControlName = "name">
    </div>
 
     <!-- message prenom requis-->
 
-    <div *ngIf="formValue.controls['prenom'].invalid && (formValue.controls['prenom'].dirty || formValue.controls['prenom'].touched)">
-      <small class="text-danger" *ngIf="formValue.controls['prenom'].errors">
+    <div *ngIf="formValue.controls['name'].invalid && (formValue.controls['name'].dirty || formValue.controls['name'].touched)">
+      <small class="text-danger" *ngIf="formValue.controls['name'].errors">
         Un prenom est requis
       </small>
     </div>
@@ -63,14 +63,14 @@
 
 
      <div class="mb-1">
-        <label for="reseaux" class="form-label">Réseaux sociaux *</label>
-        <input type="text" class="form-control" id="reseaux" formControlName = "reseaux">
+        <label for="socialMedia" class="form-label">Réseaux social *</label>
+        <input type="text" class="form-control" id="socialMedia" formControlName = "socialMedia">
       </div>
 
        <!-- message reseau social requis-->
 
-    <div *ngIf="formValue.controls['reseaux'].invalid && (formValue.controls['reseaux'].dirty || formValue.controls['reseaux'].touched)">
-      <small class="text-danger" *ngIf="formValue.controls['reseaux'].errors">
+    <div *ngIf="formValue.controls['socialMedia'].invalid && (formValue.controls['socialMedia'].dirty || formValue.controls['socialMedia'].touched)">
+      <small class="text-danger" *ngIf="formValue.controls['socialMedia'].errors">
         Un reseau social est requis
       </small>
     </div>
@@ -99,9 +99,7 @@
      </div>
  </form>
 
- <!--  A supprimer avant la fin. -->
- <!-- <p>FormValue : {{formValue.value | json}}</p> -->
- <!-- <p>FormStatus : {{formValue.status | json}}</p> -->
+
 <div class="round-bottom animate__animated animate__fadeInBottomRight"></div>
 
 </div>

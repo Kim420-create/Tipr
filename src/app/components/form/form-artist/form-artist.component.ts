@@ -17,26 +17,25 @@ export class FormArtistComponent implements OnInit {
   artistData !: any;
   
   constructor(private formBuilder : FormBuilder,
-    private api : DataService, private router : Router) {}
+    private dataService : DataService, private router : Router) {}
   
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
-      id : [''],
-      pseudo : [''],
-      prenom : ['', Validators.required],
-      nom : ['', Validators.required],
-      email : ['', Validators.required ],
-      reseaux : ['', Validators.required],
+      stageName : ['', Validators.required],
+      name : ['', Validators.required],
+      lastName : ['', Validators.required],
+      email : ['', Validators.required, Validators.email],
+      socialMedia : ['', Validators.required],
       password : ['', Validators.required]
     })
   }
 
   postArtistDetails(){
       this.artistModelObj = this.formValue.value;    
-      this.api.postArtist(this.artistModelObj)
+      this.dataService.postArtist(this.artistModelObj)
       .subscribe(res=>{
         console.log(res);
-        this.api.getIdTest(res.id)
+        this.dataService.getIdTest(res.id)
         alert("Un artiste viens d'être ajouté !")
         this.formValue.reset();
         this.router.navigate(["/profil-artist"]);
@@ -44,7 +43,6 @@ export class FormArtistComponent implements OnInit {
       err =>{
         alert("Un problème est survenu lors de l'ajout")
       })
-      console.log("Objet : ", this.artistModelObj);
   }
 
 

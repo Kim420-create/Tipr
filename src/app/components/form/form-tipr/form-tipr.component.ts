@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import { TiprService } from 'src/app/services/tipr.service';
 import { tiprModel } from '../../../../../models/tipr.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-tipr',
@@ -11,36 +12,32 @@ import { tiprModel } from '../../../../../models/tipr.model';
 export class FormTiprComponent implements OnInit {
 
   formValue !: FormGroup;
-  userModelObj : tiprModel = new tiprModel();
+  tiprModelObj : tiprModel = new tiprModel();
 
   constructor( private formBuilder : FormBuilder,
-    private api : DataService) { }
+    private tiprService : TiprService,  private router : Router) { }
 
   ngOnInit(): void {
     
     this.formValue = this.formBuilder.group({
-      id : [''],
       prenom : ['', Validators.required],
       nom : ['', Validators.required],
-      email : ['', Validators.required],
+      email : ['', Validators.required, Validators.email],
       password :['', Validators.required]
     })
   }
 
   postUserDetails(){
-    
-    this.userModelObj.prenom = this.formValue.value.prenom;
-    this.userModelObj.nom = this.formValue.value.nom;
-    this.userModelObj.email = this.formValue.value.email;
-    this.userModelObj.password = this.formValue.value.password;
-
-    this.api.postTipr(this.userModelObj)
+    this.tiprModelObj = this.formValue.value;
+    this.tiprService.postTipr(this.tiprModelObj)  
     .subscribe(res => {
       console.log(res);
+      this.tiprService.getIdTest(res.id)
       alert("Un Tipr viens d'être ajouté !")
       this.formValue.reset();
-    },
-    err => {
+      this.router.navigate(["/profil-tipr"]);
+      
+    }, err => {
       alert("Un problème est survenu lors de l'ajout")
     })
     

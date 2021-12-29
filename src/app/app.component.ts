@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StatusService } from './shared/status.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +10,10 @@ export class AppComponent {
   status = 'DOWN';
 
 
-  constructor(private statusService : StatusService) {}
+  constructor() {}
 
   ngOnInit () {
-    this.statusService
-      .getStatus()
-      .then((result:any) => {
-        this.status = result.status;
-      });
+   
   }
 }
 

@@ -25,7 +25,6 @@ export class CatalogueComponent implements OnInit {
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
-      id : [''],
       pseudo : [''],
       nom : [''],
       prenom : [''],
@@ -60,18 +59,23 @@ export class CatalogueComponent implements OnInit {
     this.formValue.controls['email'].setValue(data.email);
     this.formValue.controls['reseaux'].setValue(data.reseaux);
     this.formValue.controls['password'].setValue(data.password);
-    console.log("data :", data.id);
+    // console.log("data :", data.id);
     
   }
   
   updateArtistDetails(){
     this.artistModelObj = this.formValue.value;    
-    // console.log("ArtistModelObj", this.artistModelObj);
     this.data.updateArtist(this.artistModelObj, this.artistModelObj.id)
     .subscribe(res => {
       alert("L'artiste a été modifié avec succes");
       this.formValue.reset();
       this.getArtist();
     })
+  }
+
+  getIdProfil(id:string){
+    this.data.idArtist = id;
+    this.router.navigate(['/profil-artist/'])
+
   }
 }

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { artistFormModel } from '../../../../../models/form.artist.model';
 import { DataService } from 'src/app/services/data.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
+
 
 
 @Component({
@@ -14,33 +15,74 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 export class ProfilArtistComponent implements OnInit {
 
-  constructor(private api : DataService, private router : Router, private formbuilder : FormBuilder) { }
+  constructor(private dataService : DataService, private router : Router, private formbuilder : FormBuilder) { }
 
   formValue !: FormGroup;
-  api$ = this.api.data$;
-  artistModelObj : artistFormModel = new artistFormModel();
+  api$= this.dataService.data$;
+  artistFormModel : artistFormModel = new artistFormModel();
+  artistData !: any;
+  idArtistToEdit !: string;
 
-
+  
   ngOnInit(): void {
-    this.api.getTodos();
-    console.log("Api$ :", this.api$);        
-  }
- 
-  // onEdit(data : any) {
-  //   this.artistModelObj.id = data.id;
-  //   this.formValue.controls['pseudo'].setValue(data.pseudo);
-  //   this.formValue.controls['nom'].setValue(data.nom);
-  //   this.formValue.controls['prenom'].setValue(data.prenom);
-  //   this.formValue.controls['email'].setValue(data.email);
-  //   this.formValue.controls['reseaux'].setValue(data.reseaux);
-  //   this.formValue.controls['password'].setValue(data.password);
-  //   console.log("data :", data.id);
-    
-  // }
- 
-  
+    this.formValue = this.formbuilder.group({
+      'stageName' : null,
+      'lastName' : null,
+      'name' : null,
+      'email': null,
+      'socialMedia': null,
+      'password': null,
+      'description' : null,
+    });
 
-  
-  
+    this.dataService.getArtistId().subscribe(data => {
+      if(data) {
+        this.artistData = data[0];
+        console.log("Test data 1 :",this.artistData);               
+        this.setValueData(this.artistData);
+      }      
+    })
+  }
+
+setValueData(data:any){
+  //Set value to the formGroup
+  console.log("data :", data);
+  this.formValue.setValue({
+  'stageName' : data['stageName'] ? data['stageName'] : '',
+  'name' : data['name'] ? data['name'] : '',
+  'lastName' : data['lastName'] ? data['lastName'] : '',
+  'email' : data['email'] ? data['email'] : '',
+  'socialMedia' : data['socialMedia'] ? data['socialMedia'] : '',
+  'password' : data['password'] ? data['password'] : '',
+  'description' : data['description'] ? data['description'] : ''
+})
+}
+
+// Update
+updateArtist(){
+  this.artistData.stageName = this.formValue.value.stageName;
+  this.artistData.name = this.formValue.value.name;
+  this.artistData.lastName = this.formValue.value.lastName;
+  this.artistData.email = this.formValue.value.email;
+  this.artistData.socialMedia = this.formValue.value.socialMedia;
+  this.artistData.password = this.formValue.value.password;
+  this.artistData.description = this.formValue.value.description;
+
+  this.dataService.updateArtist(this.artistData, this.artistData._id)
+  .subscribe(res => {
+    alert("La mise à jour à bien été effectué !")
+  }, err => {
+    alert("Un problème est survenu lors de la modification")
+  })
+}
+
+// Delete
+deleteArtist(){
+  this.dataService.deleteArtist(this.artistData._id)
+  .subscribe(res => {
+    alert("Vous avez supprimé votre page !")
+  })
+}
+
  
 }

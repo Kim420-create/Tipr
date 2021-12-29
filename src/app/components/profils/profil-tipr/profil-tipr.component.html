@@ -1,1 +1,122 @@
-<p>profil-tipr works!</p>
+<div class="main-content" *ngIf="tiprData">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+
+      <div class="container-fluid" *ngIf="tiprData">
+        <!-- Brand -->
+        <p class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">{{tiprData.prenom}}</p>
+
+      
+        <!-- User -->
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg">
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm text-white font-weight-bold">{{tiprData.prenom}} {{tiprData.nom}}</span>
+                </div>
+              </div>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white">Hello </h1>
+            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+          </div>
+        </div>   
+      </div>
+    </div>
+
+    <div class="container-fluid mt--7 d-flex justify-content-center pb-8">
+      
+        <div class="col-xl-8 order-xl-1 align-center">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Mon compte</h3>
+                </div>
+                
+            </div>
+
+            <div class="card-body">
+              <form [formGroup]="formValue" class="mb-5">
+                <h6 class="heading-small text-muted mb-4">Données personnelles</h6>
+                <div>
+                  <div class="row">
+
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="nom">Nom</label>
+                        <input type="text"
+                         id="nom"
+                        class="form-control form-control-alternative"
+                        formControlName="nom">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="prenom">Prénom</label>
+                        <input type="text"
+                         id="prenom"
+                        class="form-control form-control-alternative"
+                        formControlName="prenom">
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="email">Adresse Email </label>
+                          <input type="email"
+                           id="email"
+                          class="form-control form-control-alternative"
+                          formControlName="email">
+                        </div>
+                      </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="password">Mot de passe</label>
+                        <input type="text" 
+                        id="password" 
+                        class="form-control form-control-alternative" 
+                        formControlName="password">
+                      </div>
+                    </div>
+                  </div>
+
+              </form>
+
+              <div class="button" class="d-flex justify-content-center">
+                <a type="submit" (click)="updateTipr()"  class="btn">Modifier</a>
+
+                <a type="submit" (click)="deleteTipr()" class="btn">Supprimer</a>
+              </div>
+            
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+

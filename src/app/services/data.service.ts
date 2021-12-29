@@ -16,11 +16,13 @@ export class DataService {
     private DataStore = new BehaviorSubject(INIT_DATA);
     data$: Observable<any>= this.DataStore.asObservable();
     idTest : Subject<string> = new Subject();
+    idArtist : String = "";
+    idTipr : String = "";
 
     constructor(private http : HttpClient){}
 
     postArtist(data:any){
-        return this.http.post<any>(`http://localhost:3000/artist/`, data)
+        return this.http.post<any>(`http://localhost:5000/artist/add`, data)
         .pipe(map((res : any) => {
             return res;
         }))    
@@ -34,53 +36,28 @@ export class DataService {
     }
 
     updateArtist(data:any, id: number) {
-        return this.http.put<any>(`http://localhost:3000/artist/` + id , data)
+        return this.http.put<any>(`http://localhost:5000/artist/update/` + id , data)
         .pipe(map((res:any) => {
             return res;
         }))
     }
 
     deleteArtist(id : number) {
-        return this.http.delete<any>(`http://localhost:3000/artist/` + id)
+        return this.http.delete<any>(`http://localhost:5000/artist/delete/` + id)
         .pipe(map((res : any) => {
             return res;
         }))
     }
 
-
-
-
-    // getArtistId(id:any){
-    //     return this.http.get<any>(`http://localhost:3000/artist/`, id)
-    //     .pipe(map((res : any) =>{
-    //         return res;
-    //     }))
-    // }
-
-//  Test - - - - - - - - - - - - - - - - - - -
-    getTodos(){
-        return this.http.get<any>(`${BASE_URL}/artist`)
+    getArtistId(){  
+        return this.http.get<any>(`http://localhost:5000/artist/${this.idArtist}`)
         .pipe(map((res : any) =>{
             return res;
         }))
-        .subscribe(data => {
-            this.DataStore.next(data);
-        })
     }
-
 
     getIdTest(id : string){
         this.idTest.next(id); 
     }
-
-//  - - - - - - - - - - - - - - - - - - -
-
-    postTipr(data:any){
-        return this.http.post<any>(`http://localhost:3000/tipr/`, data)
-        .pipe(map((res : any) => {
-            return res;
-        }))
-    }
-
 
 }
