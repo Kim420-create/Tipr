@@ -74,7 +74,7 @@ export class CatalogueComponent implements OnInit {
   }
 
   getIdProfil(id:string){
-    this.data.idArtist = id;
+    this.data.setIdArtist(id);
     this.router.navigate(['/profil-artist/'])
 
   }

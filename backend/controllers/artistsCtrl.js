@@ -1,7 +1,7 @@
 let artists = require("../models/artists.model")
 // POST : Create a new artist
 exports.createArtist = (req, res) => {
-    console.log("requst", req.body);
+    console.log("request", req.body);
     const newArtist = new artists(req.body);
     newArtist.save().then(post => {
         if(post) {

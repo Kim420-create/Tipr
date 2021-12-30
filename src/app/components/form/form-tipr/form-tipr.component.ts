@@ -17,8 +17,7 @@ export class FormTiprComponent implements OnInit {
   constructor( private formBuilder : FormBuilder,
     private tiprService : TiprService,  private router : Router) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void { 
     this.formValue = this.formBuilder.group({
       prenom : ['', Validators.required],
       nom : ['', Validators.required],
@@ -31,8 +30,8 @@ export class FormTiprComponent implements OnInit {
     this.tiprModelObj = this.formValue.value;
     this.tiprService.postTipr(this.tiprModelObj)  
     .subscribe(res => {
-      console.log(res);
-      this.tiprService.getIdTest(res.id)
+      this.tiprService.getIdTest(res._id)
+      // console.log("RES.id :",res._id);
       alert("Un Tipr viens d'être ajouté !")
       this.formValue.reset();
       this.router.navigate(["/profil-tipr"]);
@@ -41,5 +40,11 @@ export class FormTiprComponent implements OnInit {
       alert("Un problème est survenu lors de l'ajout")
     })
     
+  }
+
+  getIdProfil(id:string){
+    this.tiprService.idTipr = id;
+    this.router.navigate(['/profil-tipr/'])
+
   }
 }

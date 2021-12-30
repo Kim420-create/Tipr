@@ -1,11 +1,9 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 import { artistFormModel } from '../../../../../models/form.artist.model';
 import { DataService } from 'src/app/services/data.service';
-import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
-
-
 
 @Component({
   selector: 'app-profil-artist',
@@ -14,6 +12,8 @@ import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 })
 
 export class ProfilArtistComponent implements OnInit {
+
+  artistId !: any;
 
   constructor(private dataService : DataService, private router : Router, private formbuilder : FormBuilder) { }
 
@@ -37,8 +37,9 @@ export class ProfilArtistComponent implements OnInit {
 
     this.dataService.getArtistId().subscribe(data => {
       if(data) {
+
         this.artistData = data[0];
-        console.log("Test data 1 :",this.artistData);               
+        console.log("Test data 1 :",this.artistData._id);               
         this.setValueData(this.artistData);
       }      
     })
@@ -78,11 +79,15 @@ updateArtist(){
 
 // Delete
 deleteArtist(){
+  console.log("TEST :",this.artistData._id);
+  
   this.dataService.deleteArtist(this.artistData._id)
   .subscribe(res => {
     alert("Vous avez supprimé votre page !")
   })
 }
 
- 
+getIdProfil(id:string){
+  this.dataService.setIdArtist(id);
+}
 }

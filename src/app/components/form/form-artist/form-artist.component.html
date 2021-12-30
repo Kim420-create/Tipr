@@ -89,13 +89,9 @@
       </small>
     </div>
 
-     <!-- <div class="mb-3">
-      <label for="img" class="form-label">Photo</label>
-      <input type="file" class="form-control" id="img" formControlName ="img">
-    </div> -->
 
      <div class="box d-flex justify-content-center">
-         <button type="submit" (click)="postArtistDetails()" [disabled]="formValue.pristine || formValue.invalid">Enregistrer</button>
+         <button type="submit" (click)="postArtistDetails()" [disabled]="formValue.pristine || formValue.invalid" >Enregistrer</button>
      </div>
  </form>
 

@@ -29,6 +29,7 @@
     "express": "^4.17.2",
     "http": "0.0.1-security",
     "mysql": "^2.18.1",
+    "ngx-material-file-input": "^3.0.0",
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

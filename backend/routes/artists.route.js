@@ -25,7 +25,7 @@ const app = require("express").Router();
  * 
  * DELETE : deletes artist by ID
  */
- app.delete("/:id", artistCtrl.deleteById);
+ app.delete("/delete/:id", artistCtrl.deleteById);
 
  /**
   * UPDATE : modify artist by ID

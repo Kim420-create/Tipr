@@ -44,7 +44,7 @@ deleteTipr(id : number) {
 getTiprId(){ 
     return this.http.get<any>(`http://localhost:5000/tipr/${this.idTipr}`)
     .pipe(map((res : any) =>{
-        return res;
+        return res;        
     }))
 }
 

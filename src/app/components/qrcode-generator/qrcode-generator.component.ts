@@ -17,11 +17,7 @@ export class QrcodeGeneratorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.api.idTest.subscribe(data => {
-      this.id = data ;
-      // console.log("Profil ID : ",this.id);
-      
-    })
+   
   }
 
 }

@@ -7,6 +7,8 @@ import { QRCodeModule } from 'angular2-qrcode';
 import { FormsModule } from '@angular/forms';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import {  MatTabsModule } from '@angular/material/tabs';
+// import { MaterialFileInputModule } from 'ngx-material-file-input';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -50,7 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     QRCodeModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,9 +15,7 @@ export class DataService {
 
     private DataStore = new BehaviorSubject(INIT_DATA);
     data$: Observable<any>= this.DataStore.asObservable();
-    idTest : Subject<string> = new Subject();
-    idArtist : String = "";
-    idTipr : String = "";
+    private idArtist : String = "";
 
     constructor(private http : HttpClient){}
 
@@ -50,14 +48,20 @@ export class DataService {
     }
 
     getArtistId(){  
+        console.log("ID ARTIST :",this.idArtist);
+        
         return this.http.get<any>(`http://localhost:5000/artist/${this.idArtist}`)
         .pipe(map((res : any) =>{
             return res;
         }))
     }
 
-    getIdTest(id : string){
-        this.idTest.next(id); 
+    getIdArtist(){
+        return this.idArtist
+    }
+
+    setIdArtist(id : string) {
+        this.idArtist = id;
     }
 
 }

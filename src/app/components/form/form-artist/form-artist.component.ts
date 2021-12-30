@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { artistFormModel } from '../../../../../models/form.artist.model';
 import { DataService } from 'src/app/services/data.service';
-import { Router, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-artist',
@@ -31,18 +31,28 @@ export class FormArtistComponent implements OnInit {
   }
 
   postArtistDetails(){
-      this.artistModelObj = this.formValue.value;    
+      this.artistModelObj = this.formValue.value;  
       this.dataService.postArtist(this.artistModelObj)
       .subscribe(res=>{
         console.log(res);
-        this.dataService.getIdTest(res.id)
+        console.log("RES ID :", res._id);
+        this.dataService.setIdArtist(res._id);  
+        
+        
         alert("Un artiste viens d'être ajouté !")
         this.formValue.reset();
         this.router.navigate(["/profil-artist"]);
+        
       },
       err =>{
         alert("Un problème est survenu lors de l'ajout")
       })
+  }
+
+
+  getIdProfil(id:string){
+    this.dataService.setIdArtist(id);    
+    // this.router.navigate(['/profil-artist/'])
   }
 
 

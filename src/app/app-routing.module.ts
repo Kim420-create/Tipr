@@ -60,6 +60,7 @@ const routes: Routes = [
     component : ProfilTiprComponent
   },
   
+  
     
 
   
