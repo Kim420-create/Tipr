@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { artistFormModel } from '../../../../../models/form.artist.model';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-form-artist',
@@ -17,7 +18,7 @@ export class FormArtistComponent implements OnInit {
   artistData !: any;
   
   constructor(private formBuilder : FormBuilder,
-    private dataService : DataService, private router : Router) {}
+    private dataService : DataService, private router : Router, private authService : AuthService) {}
   
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -31,13 +32,15 @@ export class FormArtistComponent implements OnInit {
   }
 
   postArtistDetails(){
-      this.artistModelObj = this.formValue.value;  
+    
+       this.artistModelObj = this.formValue.value;  
+
+      console.log("Je fonctionne", this.artistModelObj);
       this.dataService.postArtist(this.artistModelObj)
       .subscribe(res=>{
         console.log(res);
         console.log("RES ID :", res._id);
         this.dataService.setIdArtist(res._id);  
-        
         
         alert("Un artiste viens d'être ajouté !")
         this.formValue.reset();
@@ -52,11 +55,17 @@ export class FormArtistComponent implements OnInit {
 
   getIdProfil(id:string){
     this.dataService.setIdArtist(id);    
-    // this.router.navigate(['/profil-artist/'])
   }
 
 
-
+  registerUser() {
+    this.authService.register(this.formValue.value).subscribe((res) => {
+      if (res.result) {
+        this.formValue.reset();
+        this.router.navigate(['login'])
+      }
+    })
+  }
  
     
 }

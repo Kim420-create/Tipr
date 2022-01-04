@@ -18,6 +18,7 @@ const artistSchema = new Schema({
     email : {
         type : String,
         require : true,
+        // unique : true,
     },
     socialMedia : {
         type : String,
@@ -26,6 +27,7 @@ const artistSchema = new Schema({
     password : {
         type : String,
         require : true,
+        // minlength : 4,
     },
     description : {
         type : String,

@@ -12,11 +12,10 @@
     position: absolute;
     z-index: -1;
 }
-/* .container {
-    margin: 40px 50px;
-    padding: 50px 50px;
+.container {
+    padding: 50px 0;
     
-} */
+}
 .container > h2, h1 {
     text-align: center;
     margin: revert;

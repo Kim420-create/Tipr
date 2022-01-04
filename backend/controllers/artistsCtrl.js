@@ -1,4 +1,5 @@
 let artists = require("../models/artists.model")
+
 // POST : Create a new artist
 exports.createArtist = (req, res) => {
     console.log("request", req.body);
@@ -12,9 +13,11 @@ exports.createArtist = (req, res) => {
 }
 // GET : get all Artists
 exports.getArtists = (req, res) => {
+    
     artists.find({}).then(data => {
         res.json(data)
     })
+
 };
 //GET : get artist by ID
 exports.getArtistsbyId = (req, res) => {
@@ -22,13 +25,13 @@ exports.getArtistsbyId = (req, res) => {
     artists.find({_id : req.params.id}).then(data => {
         res.json(data);
     })
-}
+};
 // DELETE : delete artist by id
 exports.deleteById = (req, res) => {
     artists.findByIdAndDelete({_id : req.params.id}).then(data => {
         res.json(data);
     }) 
-}
+};
 // UPDATE : modify an artist
 exports.updateArtist = (req, res) => {
     artists.findOneAndUpdate({_id:req.params.id}, req.body, {new : true}, function (err, post) {
@@ -38,4 +41,5 @@ exports.updateArtist = (req, res) => {
         }
         res.json(post)
     })
-}
+};
+

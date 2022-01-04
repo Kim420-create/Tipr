@@ -22,6 +22,7 @@ const tiprRouter = require("./routes/tipr.route");
 app.use("/artist", artistsRouter);
 app.use("/tipr", tiprRouter);
 // app.use("/gallery", galleryRouter);
+// app.use("/upload", ...)
 
 app.listen(port, () => {
   console.log(`server is running on port: ${port}`);

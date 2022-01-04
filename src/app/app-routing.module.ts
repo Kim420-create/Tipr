@@ -11,6 +11,8 @@ import { QrcodeGeneratorComponent } from './components/qrcode-generator/qrcode-g
 import { ProfilArtistComponent } from './components/profils/profil-artist/profil-artist.component';
 import { ProfilTiprComponent } from './components/profils/profil-tipr/profil-tipr.component';
 import { AboutComponent } from './components/about/about.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -25,7 +27,7 @@ const routes: Routes = [
   },
   {
     path : 'accueil',
-    component : AccueilComponent
+    component : AccueilComponent,
   },
   {
     path : 'about',
@@ -41,7 +43,7 @@ const routes: Routes = [
   },
   {
     path : 'form-artist',
-    component : FormArtistComponent
+    component : FormArtistComponent,
   },
   {
     path : 'catalogue',
@@ -53,12 +55,18 @@ const routes: Routes = [
   },
   {
     path : 'profil-artist',
-    component : ProfilArtistComponent
+    component : ProfilArtistComponent,
+    // canActivate : [AuthGuard]
   },
   {
     path : 'profil-tipr',
     component : ProfilTiprComponent
   },
+  {
+    path : 'login',
+    component : LoginComponent
+  }
+  
   
   
     

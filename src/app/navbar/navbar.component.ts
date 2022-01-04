@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +11,13 @@ import { DataService } from '../services/data.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private api : DataService) { }
+  constructor( private dataService : DataService, router : Router, public authService : AuthService) { }
 
   ngOnInit(): void {
   
   }
 
+  logout() {
+    this.authService.logout();
+  }
 }

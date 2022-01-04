@@ -8,24 +8,26 @@
 
 <div class="containerForm">
 
-<!-- formulaire artist-->
-<form class="m-5 form align-center" style="width: 50%;" [formGroup] = "formValue" novalidate>
+<form class="m-5 form align-center" style="width: 50%;" [formGroup] = "formValue" (ngSubmit)="registerUser()" novalidate>
 
     <div class="mb-1">
      <p>Les champs obligatoires sont précédés d'une étoile *</p>
 
-        <label for="stageName" class="form-label">Nom de scène </label>
+        <label for="stageName" class="form-label">Nom de scène *</label>
         <input type="text" class="form-control" id="stageName" formControlName = "stageName" >
       </div>
 
-      
+      <div *ngIf="formValue.controls['stageName'].invalid && (formValue.controls['stageName'].dirty || formValue.controls['stageName'].touched)">
+        <small class="text-danger" *ngIf="formValue.controls['stageName'].errors">
+          Un nom de scène est requis
+        </small>
+      </div>
 
    <div class="mb-1">
      <label for="lastName" class="form-label">Nom *</label>
      <input type="text" class="form-control" id="lastName" formControlName = "lastName">
    </div>
 
-   <!-- message nom requis -->
 
    <div *ngIf="formValue.controls['lastName'].invalid && (formValue.controls['lastName'].dirty || formValue.controls['lastName'].touched)">
      <small class="text-danger" *ngIf="formValue.controls['lastName'].errors">
@@ -39,7 +41,6 @@
      <input type="text" class="form-control" id="name" formControlName = "name">
    </div>
 
-    <!-- message prenom requis-->
 
     <div *ngIf="formValue.controls['name'].invalid && (formValue.controls['name'].dirty || formValue.controls['name'].touched)">
       <small class="text-danger" *ngIf="formValue.controls['name'].errors">
@@ -53,11 +54,10 @@
        <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</div>
      </div>
 
-      <!-- message email requis -->
 
     <div *ngIf="formValue.controls['email'].invalid && (formValue.controls['email'].dirty || formValue.controls['email'].touched)">
       <small class="text-danger" *ngIf="formValue.controls['email'].errors">
-        Un email est requis
+        Un email unique est requis
       </small>
     </div>
 
@@ -67,7 +67,6 @@
         <input type="text" class="form-control" id="socialMedia" formControlName = "socialMedia">
       </div>
 
-       <!-- message reseau social requis-->
 
     <div *ngIf="formValue.controls['socialMedia'].invalid && (formValue.controls['socialMedia'].dirty || formValue.controls['socialMedia'].touched)">
       <small class="text-danger" *ngIf="formValue.controls['socialMedia'].errors">
@@ -81,7 +80,6 @@
        <input type="password" class="form-control" id="password" formControlName ="password">
      </div>
 
-      <!-- message mot de passe requis -->
 
     <div *ngIf="formValue.controls['password'].invalid && (formValue.controls['password'].dirty || formValue.controls['password'].touched)">
       <small class="text-danger" *ngIf="formValue.controls['password'].errors">
@@ -91,7 +89,7 @@
 
 
      <div class="box d-flex justify-content-center">
-         <button type="submit" (click)="postArtistDetails()" [disabled]="formValue.pristine || formValue.invalid" >Enregistrer</button>
+         <button type="submit"(click)="postArtistDetails()" [disabled]="formValue.pristine || formValue.invalid" >Enregistrer</button>
      </div>
  </form>
 

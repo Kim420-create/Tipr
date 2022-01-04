@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AuthInterceptor } from './auth.interceptor';
+import { AuthService } from './services/auth.service';
 // QRCode
 import { QRCodeModule } from 'angular2-qrcode';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +22,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormComponent } from './components/form/form.component';
 import { FormTiprComponent } from './components/form/form-tipr/form-tipr.component';
 import { FormArtistComponent } from './components/form/form-artist/form-artist.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CatalogueComponent } from './components/catalogue/catalogue.component';
 import { QrcodeGeneratorComponent } from './components/qrcode-generator/qrcode-generator.component';
 import { ProfilArtistComponent } from './components/profils/profil-artist/profil-artist.component';
@@ -28,6 +30,8 @@ import { ProfilTiprComponent } from './components/profils/profil-tipr/profil-tip
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { FlashMessagesModule } from 'flash-messages-angular';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProfilTiprComponent,
     AboutComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +58,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    FlashMessagesModule.forRoot()
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

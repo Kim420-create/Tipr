@@ -31,6 +31,8 @@ const app = require("express").Router();
   * UPDATE : modify artist by ID
   */
  app.put('/update/:id', artistCtrl.updateArtist);
+
+
  
 
 module.exports = app;

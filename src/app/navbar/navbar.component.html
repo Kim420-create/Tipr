@@ -25,7 +25,11 @@
         </li>
       
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" >Connexion</a>
+          <a class="nav-link" [routerLink]="['login']" routerLinkActive="active" >Connexion</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['login']" (click)="logout()" *ngIf="this.authService.isLoggedIn()" routerLinkActive="active" >Déconnexion</a>
         </li>
 
         <!-- <li class="nav-item">
@@ -35,22 +39,8 @@
     </div>
   </div>
 </nav>
-
-
-
-   
-       
-
          
-  <!-- pas usful yet -->
-           <!-- <li class="nav-item">
-            <a class="nav-link" [routerLink]="['list-tipr']">Admin Tipr</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['list-artist']">Admin Artist</a>
-          </li> -->
-   
-        
-       <router-outlet></router-outlet>
+<router-outlet></router-outlet>
+<!-- <app-about></app-about> -->
+
   

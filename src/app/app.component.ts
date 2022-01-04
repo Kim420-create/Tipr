@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   status = 'DOWN';
 
 
-  constructor() {}
+  constructor(private authService : AuthService) {}
 
   ngOnInit () {
    
