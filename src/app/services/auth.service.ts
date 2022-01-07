@@ -17,20 +17,20 @@ import { artistFormModel } from 'models/form.artist.model';
   
     constructor(private httpClient: HttpClient,public router: Router){}
   
-    register(artist: artistFormModel): Observable<any> {
+    // register(artist: artistFormModel): Observable<any> {
   
-      return this.httpClient.post(`${this.API_URL}/users/register`, artist).pipe(
-          catchError(this.handleError)
-      )
-    }
+    //   return this.httpClient.post(`${this.API_URL}/users/register`, artist).pipe(
+    //       catchError(this.handleError)
+    //   )
+    // }
 
     login(artist: artistFormModel) {
-        return this.httpClient.post<any>(`${this.API_URL}/users/login`, artist)
+        return this.httpClient.post<any>(`${this.API_URL}/artist/login`, artist)
           .subscribe((res: any) => {
             localStorage.setItem('access_token', res.token)
             this.getUserProfile(res._id).subscribe((res) => {
               this.currentUser = res;
-              this.router.navigate(['users/profile/' + res.msg._id]);
+              this.router.navigate(['artist-profile/' + res.msg._id]);
             })
           })
       }
@@ -39,7 +39,7 @@ import { artistFormModel } from 'models/form.artist.model';
         return localStorage.getItem('access_token');
       }
     
-      get isLoggedIn(): boolean {
+      get isLoggedIn(): any {
         let authToken = localStorage.getItem('access_token');
         return (authToken !== null) ? true : false;
       }
@@ -51,7 +51,7 @@ import { artistFormModel } from 'models/form.artist.model';
       }
     
       getUserProfile(id : any): Observable<any> {
-        return this.httpClient.get(`${this.API_URL}/users/profile/${id}`, { headers: this.headers }).pipe(
+        return this.httpClient.get(`${this.API_URL}/artist/${id}`, { headers: this.headers }).pipe(
           map((res:any) => {
             return res || {}
           }),

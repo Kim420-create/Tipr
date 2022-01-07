@@ -11,6 +11,7 @@
     border-radius: 50%;
     position: absolute;
     z-index: -1;
+    right: 0;
 }
 .container {
     padding: 50px 0;

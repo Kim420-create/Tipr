@@ -51,4 +51,11 @@ getTiprId(){
 getIdTest(id : string){
   this.idTest.next(id); 
 }
+
+getIdTipr(){
+  return this.idTipr;
+}
+setIdTipr(id : string){
+  this.idTipr = id;
+}
 }

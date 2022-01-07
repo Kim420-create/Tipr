@@ -13,10 +13,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  
   isLoginError : boolean = false;
   loginForm : any = FormGroup;
   artists : any = [];
-
   constructor(private fb:FormBuilder, private router : Router, private dataService : DataService, private authService : AuthService) { }
 
 
@@ -37,12 +37,12 @@ export class LoginComponent implements OnInit {
       this.artists.forEach((item : any) => {        
         if (item.email === data.email && item.password === data.password) {
           console.log("Profile valide !");
-          // localStorage.setItem("isLoggedIn", "true")
-          // this.router.navigate(['accueil']);
+          localStorage.setItem("isLoggedIn", "true")
+          this.router.navigate(['accueil']);
         }
         else {
           console.log("Profile non valide !");
-          // localStorage.clear();
+          localStorage.clear();
         }
         
       });

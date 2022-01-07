@@ -30,8 +30,7 @@ export class FormTiprComponent implements OnInit {
     this.tiprModelObj = this.formValue.value;
     this.tiprService.postTipr(this.tiprModelObj)  
     .subscribe(res => {
-      this.tiprService.getIdTest(res._id)
-      // console.log("RES.id :",res._id);
+      this.tiprService.setIdTipr(res._id);
       alert("Un Tipr viens d'être ajouté !")
       this.formValue.reset();
       this.router.navigate(["/profil-tipr"]);
@@ -43,8 +42,7 @@ export class FormTiprComponent implements OnInit {
   }
 
   getIdProfil(id:string){
-    this.tiprService.idTipr = id;
-    this.router.navigate(['/profil-tipr/'])
+    this.tiprService.setIdTipr(id);
 
   }
 }

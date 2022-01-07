@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+
 const app = express();
 const port = 5000;
 app.use(cors());
@@ -17,12 +18,12 @@ connection.once('open', () => {
 
 const artistsRouter = require("./routes/artists.route");
 const tiprRouter = require("./routes/tipr.route");
-// const galleryRouter = require("./routes/gallery.route");
+const uploadRouter = require("./routes/upload.route")
+
 
 app.use("/artist", artistsRouter);
 app.use("/tipr", tiprRouter);
-// app.use("/gallery", galleryRouter);
-// app.use("/upload", ...)
+app.use("/upload", uploadRouter);
 
 app.listen(port, () => {
   console.log(`server is running on port: ${port}`);

@@ -1,8 +1,6 @@
 let artists = require("../models/artists.model")
-
 // POST : Create a new artist
 exports.createArtist = (req, res) => {
-    console.log("request", req.body);
     const newArtist = new artists(req.body);
     newArtist.save().then(post => {
         if(post) {
@@ -13,7 +11,6 @@ exports.createArtist = (req, res) => {
 }
 // GET : get all Artists
 exports.getArtists = (req, res) => {
-    
     artists.find({}).then(data => {
         res.json(data)
     })
@@ -21,7 +18,6 @@ exports.getArtists = (req, res) => {
 };
 //GET : get artist by ID
 exports.getArtistsbyId = (req, res) => {
-    console.log("1 :", req.params.id);
     artists.find({_id : req.params.id}).then(data => {
         res.json(data);
     })

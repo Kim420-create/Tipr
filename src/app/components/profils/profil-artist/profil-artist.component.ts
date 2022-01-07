@@ -17,13 +17,9 @@ export class ProfilArtistComponent implements OnInit {
   artistId !: any;
   currentUser : Object = {};
 
-  constructor(private dataService : DataService, private router : Router, private formbuilder : FormBuilder, private activatedRoute : ActivatedRoute, private authService : AuthService) {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.authService.getUserProfile(id).subscribe(res => {
-      this.currentUser = res.msg;
-    })
-   }
+  constructor(private dataService : DataService, private router : Router, private formbuilder : FormBuilder, private activatedRoute : ActivatedRoute, private authService : AuthService) {}
 
+  form !: FormGroup;
   formValue !: FormGroup;
   api$= this.dataService.data$;
   artistFormModel : artistFormModel = new artistFormModel();
@@ -42,21 +38,20 @@ export class ProfilArtistComponent implements OnInit {
     });
 
     let idArtist = this.dataService.getIdArtist();
-     console.log("LALALA",idArtist);
     
     
     this.dataService.getArtistId().subscribe(data => {
       if(data) {
         this.artistData = data[0];
-        console.log("Test data 1 :",this.artistData._id);               
         this.setValueData(this.artistData);
       } 
     })
   }
 
+
+ 
 setValueData(data:any){
   //Set value to the formGroup
-  // console.log("data :", data);
   this.formValue.setValue({
   'stageName' : data['stageName'] ? data['stageName'] : '',
   'name' : data['name'] ? data['name'] : '',
@@ -64,7 +59,8 @@ setValueData(data:any){
   'email' : data['email'] ? data['email'] : '',
   'socialMedia' : data['socialMedia'] ? data['socialMedia'] : '',
   'password' : data['password'] ? data['password'] : '',
-  'description' : data['description'] ? data['description'] : ''
+  'description' : data['description'] ? data['description'] : '',
+  'imgProfil' : data['imgProfil'] ? data['imgProfil'] : '',
 })
 }
 

@@ -24,14 +24,6 @@ export class CatalogueComponent implements OnInit {
   constructor(private data : DataService, private formbuilder : FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
-    this.formValue = this.formbuilder.group({
-      pseudo : [''],
-      nom : [''],
-      prenom : [''],
-      email : [''],
-      reseaux : [''],
-      password : ['']
-    })
     this.getArtist();
   }
  
@@ -39,7 +31,6 @@ export class CatalogueComponent implements OnInit {
     this.data.getArtist()
     .subscribe(res => {
       this.artistData = res;
-      console.log("ArtistData :",this.artistData)
     })
   }
 
@@ -59,7 +50,6 @@ export class CatalogueComponent implements OnInit {
     this.formValue.controls['email'].setValue(data.email);
     this.formValue.controls['reseaux'].setValue(data.reseaux);
     this.formValue.controls['password'].setValue(data.password);
-    // console.log("data :", data.id);
     
   }
   
@@ -74,8 +64,8 @@ export class CatalogueComponent implements OnInit {
   }
 
   getIdProfil(id:string){
-    this.data.setIdArtist(id);
-    this.router.navigate(['/profil-artist/'])
+    this.data.setIdArtist(id);    
+    this.router.navigate(['/profil-artist/']);
 
   }
 }

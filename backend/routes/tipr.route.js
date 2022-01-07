@@ -1,4 +1,3 @@
-let tipr = require('../models/tipr.model')
 let tiprCtrl = require('../controllers/tiprCtrl')
 
 const app = require("express").Router();
@@ -21,7 +20,7 @@ app.get("/:id", tiprCtrl.getTiprbyId);
 /**
  * DELETE : delete tipr by ID
  */
-app.delete("/:id", tiprCtrl.deleteById)
+app.delete("/delete/:id", tiprCtrl.deleteById)
 
 /**
  * UPDATE : modify a Tipr by id

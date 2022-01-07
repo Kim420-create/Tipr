@@ -3,6 +3,7 @@ import {  map  } from 'rxjs/operators'
 import {  HttpClient  } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { FormArtistComponent } from '../components/form/form-artist/form-artist.component';
+import { artistFormModel } from 'models/form.artist.model';
 
 const INIT_DATA : any = [];
 const BASE_URL = "http://localhost:3000";
@@ -16,7 +17,7 @@ export class DataService {
     private DataStore = new BehaviorSubject(INIT_DATA);
     data$: Observable<any>= this.DataStore.asObservable();
     private idArtist : String = "";
-
+    
     constructor(private http : HttpClient){}
 
     postArtist(data:any){
@@ -47,9 +48,7 @@ export class DataService {
         }))
     }
 
-    getArtistId(){  
-        console.log("ID ARTIST :",this.idArtist);
-        
+    getArtistId(){            
         return this.http.get<any>(`http://localhost:5000/artist/${this.idArtist}`)
         .pipe(map((res : any) =>{
             return res;
@@ -57,11 +56,12 @@ export class DataService {
     }
 
     getIdArtist(){
-        return this.idArtist
+        return this.idArtist;
     }
 
     setIdArtist(id : string) {
         this.idArtist = id;
     }
 
+ 
 }

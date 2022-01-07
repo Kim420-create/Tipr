@@ -1,8 +1,6 @@
-let artists = require('../models/artists.model')
 let artistCtrl = require("../controllers/artistsCtrl")
 
 const app = require("express").Router();
-
 /**
  * 
  * POST : creates a new artist
@@ -31,8 +29,5 @@ const app = require("express").Router();
   * UPDATE : modify artist by ID
   */
  app.put('/update/:id', artistCtrl.updateArtist);
-
-
  
-
 module.exports = app;

@@ -5,8 +5,8 @@ exports.createTipr = (req, res) => {
     const newTipr = new tipr(req.body);
     newTipr.save().then(post => {
         if (post) {
+            console.log(post);
             res.json(post)
-            console.log("POSTTIPR :",post);
         }
     })
 }
@@ -18,7 +18,6 @@ exports.getTipr = (req, res) => {
 };
 // GET: get tipr by id
 exports.getTiprbyId = (req, res) => {
-    console.log("2 :", req.params.id);
     tipr.find({_id : req.params.id}).then(data => {
         res.json(data);
     })

@@ -17,6 +17,7 @@ export class ProfilTiprComponent implements OnInit {
   formValue !: FormGroup;
   tiprData !: any;
   tiprModel : tiprModel = new tiprModel();
+  tiprId !: any;
 
   ngOnInit(): void {
     this.formValue = this.formbuilder.group({
@@ -26,16 +27,16 @@ export class ProfilTiprComponent implements OnInit {
       'password' : null
     });
 
+    let idTipr = this.tiprService.getIdTipr();
+
     this.tiprService.getTiprId().subscribe(data => {      
       if (data)
       this.tiprData = data[0];
-      console.log("tiprData !!!:", this.tiprData);
       this.setValueData(this.tiprData);
     })
   }
   
   setValueData(data : any) {
-    console.log("data", data);
     this.formValue.setValue({
       'prenom' : data['prenom'] ? data['prenom'] : '',
       'nom' : data['nom'] ? data['nom'] : '',
@@ -59,11 +60,13 @@ export class ProfilTiprComponent implements OnInit {
     })
   }
 
-  deleteTipr(){
-    this.tiprData.deleteTipr(this.tiprData._id)
+  deleteTipr(){    
+    this.tiprService.deleteTipr(this.tiprData._id)
     .subscribe((res: any) => {
       alert("Vous avez supprimé votre page !")
     })
   }
+
+
 
 }

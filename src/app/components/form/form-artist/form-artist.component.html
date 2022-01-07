@@ -8,11 +8,10 @@
 
 <div class="containerForm">
 
-<form class="m-5 form align-center" style="width: 50%;" [formGroup] = "formValue" (ngSubmit)="registerUser()" novalidate>
+<form class="m-5 form align-center" style="width: 50%;" [formGroup] = "formValue" novalidate>
 
     <div class="mb-1">
      <p>Les champs obligatoires sont précédés d'une étoile *</p>
-
         <label for="stageName" class="form-label">Nom de scène *</label>
         <input type="text" class="form-control" id="stageName" formControlName = "stageName" >
       </div>
@@ -91,6 +90,7 @@
      <div class="box d-flex justify-content-center">
          <button type="submit"(click)="postArtistDetails()" [disabled]="formValue.pristine || formValue.invalid" >Enregistrer</button>
      </div>
+     
  </form>
 
 
