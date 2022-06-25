@@ -1,6 +1,22 @@
-# Tipr
+# Tipr 🎨
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
+
+## Install Project
+* Install NodeJs 
+* npm install -g @angular/cli 
+* Install mongodb-compass 
+
+## Run MongoDB as a Local
+* Install mongodb-windows
+
+## Install package
+* npm install
+
+## Back-end server start
+* cd .\backend 
+* npm start
+
 
 ## Development server
 
